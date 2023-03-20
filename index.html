@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Portfolio</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&display=swap" rel="stylesheet" />
+
+		<link rel="stylesheet" href="./css/locomotive-scroll.css" />
+		<link rel="stylesheet" href="./css/loader.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+
+		<script src="./libs/gsap/gsap.min.js"></script>
+		<script src="./libs/gsap/TextPlugin.min.js"></script>
+		<script src="./libs/gsap/ScrollTrigger.min.js"></script>
+		<script src="./libs/locomotive-scroll/locomotive-scroll.min.js"></script>
+
+		<script src="./js/loading.js"></script>
+		<script defer src="./js/main.js"></script>
+	</head>
+	<body>
+		<div class="loader">
+			<div class="droid">
+				<div class="radios">
+					<div class="radio short"></div>
+					<div class="radio long"></div>
+				</div>
+				<div class="head">
+					<div class="band one"></div>
+					<div class="band two"></div>
+					<div class="eyes">
+						<div class="eye one"></div>
+						<div class="eye two"></div>
+					</div>
+					<div class="band three"></div>
+				</div>
+				<div class="body">
+					<div class="lines one"></div>
+					<div class="lines two"></div>
+					<div class="circle one"></div>
+					<div class="circle two"></div>
+					<div class="circle three"></div>
+				</div>
+			</div>
+			<p class="loader__text">Loading...</p>
+		</div>
+		<header class="header">
+			<nav class="header__nav">
+				<ul class="header__list">
+					<li class="header__item">
+						<a href="#about" class="header__link"> About </a>
+					</li>
+					<li class="header__item">
+						<a href="#skills" class="header__link"> Skills </a>
+					</li>
+					<li class="header__item">
+						<a href="#works" class="header__link"> Works </a>
+					</li>
+					<li class="header__item">
+						<a href="#works" class="header__link"> Contacts </a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div class="all-content">
+			<main class="main">
+				<section class="about">
+					<div class="about__content">
+						<div class="about__bg"></div>
+						<div class="about__frame">?</div>
+						<div class="intro about__intro">
+							<p class="intro__hi"></p>
+							<p class="intro__text"></p>
+							<p class="intro__desc"></p>
+						</div>
+					</div>
+				</section>
+				<section class="offers">
+					<div class="container offers__container">
+						<div class="offers__left">
+							<div class="offers__title">What can I offer you as a frontend developer?</div>
+							<div class="offers__yoda"></div>
+						</div>
+						<ul class="offers__right">
+							<li class="offers__item">
+								<span class="offers__item-icon"></span>
+								<span class="offers__item-text">✓ UI/UX Design</span>
+							</li>
+							<li class="offers__item">
+								<span class="offers__item-icon"></span>
+								<span class="offers__item-text">✓ HTML, CSS, and JavaScript Development</span>
+							</li>
+							<li class="offers__item">
+								<span class="offers__item-icon"></span>
+								<span class="offers__item-text">✓ Responsive Design</span>
+							</li>
+							<li class="offers__item">
+								<span class="offers__item-icon"></span>
+								<span class="offers__item-text">✓ React or Next Development</span>
+							</li>
+							<li class="offers__item">
+								<span class="offers__item-icon"></span>
+								<span class="offers__item-text">✓ Single-Page Applications (SPAs)</span>
+							</li>
+							<li class="offers__item">
+								<span class="offers__item-icon"></span>
+								<span class="offers__item-text">✓ Performance Optimization</span>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="skills">
+					<p class="skills__text">Let's see what skills I have...</p>
+					<div class="skills__bg">
+						<div class="skills__content">
+							<div class="skills__computers">
+								<div class="skills__display">
+									<div class="skills__display-shadow"></div>
+									<ul class="skills__list skills__list--1 skills__list-up">
+										<li class="skills__item">
+											<div class="skills__item-bg--html skills__item-bg"></div>
+											<p class="skills__item-text">HTML</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--ts skills__item-bg"></div>
+											<p class="skills__item-text">TYPESCRIPT</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--git skills__item-bg"></div>
+											<p class="skills__item-text">GIT</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--bootstrap skills__item-bg"></div>
+											<p class="skills__item-text">BOOTSTRAP</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--gsap skills__item-bg"></div>
+											<p class="skills__item-text">GSAP</p>
+										</li>
+									</ul>
+									<ul class="skills__list skills__list--2">
+										<li class="skills__item">
+											<div class="skills__item-bg--styled skills__item-bg"></div>
+											<p class="skills__item-text">STYLED COMPONENTS</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--tailwind skills__item-bg"></div>
+											<p class="skills__item-text">TAILWIND</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--next skills__item-bg"></div>
+											<p class="skills__item-text">NEXT</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--react skills__item-bg"></div>
+											<p class="skills__item-text">REACT</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--css skills__item-bg"></div>
+											<p class="skills__item-text">CSS</p>
+										</li>
+									</ul>
+									<ul class="skills__list skills__list--3 skills__list-up">
+										<li class="skills__item">
+											<div class="skills__item-bg--js skills__item-bg"></div>
+											<p class="skills__item-text">JAVASCRIPT</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--awesome skills__item-bg"></div>
+											<p class="skills__item-text">I'M AWESOME</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--redux skills__item-bg"></div>
+											<p class="skills__item-text">REDUX</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--sass skills__item-bg"></div>
+											<p class="skills__item-text">SASS</p>
+										</li>
+										<li class="skills__item">
+											<div class="skills__item-bg--motion skills__item-bg"></div>
+											<p class="skills__item-text">FRAMER MOTION</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="works">
+					<div class="works__header">MY PROJECTS</div>
+					<div class="works__content">
+						<ul class="works__list">
+							<li class="works__item">
+								<div class="works__image-block">
+									<div class="works__image works__image--vibe"></div>
+									<div class="works__cd"></div>
+								</div>
+								<p class="works__text">Landing page with scroll animations created in React using styled components, framer-motion and gsap animations</p>
+								<button class="works__button">
+									<a href="" target="_blank" class="works__link"> Demo </a>
+								</button>
+							</li>
+							<li class="works__item">
+								<div class="works__image-block">
+									<div class="works__image works__image--gpt"></div>
+									<div class="works__cd"></div>
+								</div>
+								<p class="works__text">Animated landing page created with React and SCSS</p>
+								<button class="works__button">
+									<a href="" target="_blank" class="works__link"> Demo </a>
+								</button>
+							</li>
+							<li class="works__item">
+								<div class="works__image-block">
+									<div class="works__image works__image--medium"></div>
+									<div class="works__cd"></div>
+								</div>
+								<p class="works__text">Clone of the popular blog Medium created in NextJS using Typescript, TaiwindCSS and CMS Sanity as the backend</p>
+								<button class="works__button">
+									<a href="" target="_blank" class="works__link"> Demo </a>
+								</button>
+							</li>
+							<li class="works__item">
+								<div class="works__image-block">
+									<div class="works__image works__image--sneakers"></div>
+									<div class="works__cd"></div>
+								</div>
+								<p class="works__text">Online sneaker store created using React and SCSS modules, which uses Mockapi as the backend</p>
+								<button class="works__button">
+									<a href="" target="_blank" class="works__link"> Demo </a>
+								</button>
+							</li>
+
+							<li class="works__item">
+								<div class="works__image-block">
+									<div class="works__image works__image--glass"></div>
+									<div class="works__cd"></div>
+								</div>
+								<p class="works__text">Coming soon...</p>
+								<div></div>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="legendary">
+					<svg id="svgfilters" viewBox="0 0 1400 1400" xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+						<defs>
+							<filter id="squiggly-0">
+								<feturbulence basefrequency="0.02" id="turbulence-0" numoctaves="3" result="noise" seed="0"></feturbulence>
+								<fedisplacementmap id="displacement-0" in2="noise" in="SourceGraphic" scale="2"></fedisplacementmap>
+							</filter>
+
+							<!-- <filter id="disp">
+								<feTurbulence id="feTurbulence836" result="turbulence" baseFrequency="1" seed="360" numOctaves="1" type="fractalNoise" />
+								<feDisplacementMap id="feDisplacementMap838" xChannelSelector="R" yChannelSelector="G" scale="0.6" in2="turbulence" in="SourceGraphic" />
+							</filter>
+
+							<filter id="noise">
+								<feComponentTransfer in="SourceGraphic" result="ct">
+									<feFuncB type="linear" slope=".6" />
+									<feFuncG type="linear" slope="0" />
+								</feComponentTransfer>
+								<feTurbulence type="fractalNoise" baseFrequency="2" numOctaves="10" result="noisy" />
+								<feColorMatrix type="saturate" values=".5" />
+								<feBlend in="ct" in2="noisy" mode="multiply" />
+							</filter> -->
+						</defs>
+					</svg>
+					<div class="legendary__picture2-shadow">
+						<img class="legendary__picture legendary__picture--2" src="./img/legendary_picture2.png" alt="" />
+					</div>
+
+					<img class="legendary__picture legendary__picture--4" src="./img/legendary_picture4.png" alt="" />
+
+					<img class="legendary__picture legendary__picture--3" src="./img/legendary_picture3.png" alt="" />
+
+					<img class="legendary__picture legendary__picture--1" src="./img/legendary_picture1.png" alt="" />
+
+					<div class="legendary__gif-block">
+						<div class="legendary__frame"></div>
+						<div class="legendary__gif">
+							<div class="legendary__gif-shadow"></div>
+						</div>
+					</div>
+
+					<div class="legendary__text-block">
+						<div class="legendary__text legendary__text--1">it's gonna be</div>
+						<div class="legendary__text legendary__text--wait">wait for it</div>
+						<div class="legendary__text legendary__text--2">legen<span class="legendary__text--dary"></span></div>
+					</div>
+					<div class="legendary__frame-floor"></div>
+					<div class="legendary__contacts contacts">
+						<div class="contacts__text">
+							CONTACT ME AND I WILL CREATE SOMETHING EVEN BETTER FOR YOU.
+							<p class="contacts__email">tsimafei.maroz@gmail.com</p>
+						</div>
+						<ul class="contacts__list">
+							<li class="contacts__item contacts__item--email">
+								<a target="blank" href="mailto:tsimafei.maroz@gmail.com" class="contacts__link">
+									<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0,0,256,256" style="fill: #000000">
+										<g fill="#030303" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+											<g transform="scale(5.12,5.12)">
+												<path
+													d="M14,4c-5.51133,0 -10,4.48867 -10,10v22c0,5.51133 4.48867,10 10,10h22c5.51133,0 10,-4.48867 10,-10v-22c0,-5.51133 -4.48867,-10 -10,-10zM14,6h22c4.43067,0 8,3.56933 8,8v22c0,4.43067 -3.56933,8 -8,8h-22c-4.43067,0 -8,-3.56933 -8,-8v-22c0,-4.43067 3.56933,-8 8,-8zM13,15c-1.64497,0 -3,1.35503 -3,3v14c0,1.64497 1.35503,3 3,3h24c1.64497,0 3,-1.35503 3,-3v-14c0,-1.64497 -1.35503,-3 -3,-3zM13.41406,17h23.16992l-8.90625,8.89258c-1.49279,1.49041 -3.8809,1.49024 -5.37305,-0.00195zM38,18.41211v13.17578l-6.59766,-6.58789zM12,18.41406l6.58594,6.58594l-6.58594,6.58594zM29.98828,26.41211l6.59766,6.58789h-23.17188l6.58594,-6.58594l0.89063,0.89063c2.25585,2.25585 5.94201,2.25751 8.19922,0.00391z"
+												></path>
+											</g>
+										</g>
+									</svg>
+								</a>
+							</li>
+							<li class="contacts__item contacts__item--git">
+								<a target="blank" href="https://github.com/timmrz" class="contacts__link">
+									<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="70" viewBox="0,0,256,256" style="fill: #000000">
+										<g fill="#030303" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+											<g transform="scale(8,8)">
+												<path
+													d="M16,4c-6.62891,0 -12,5.37109 -12,12c0,5.30078 3.4375,9.80078 8.20703,11.38672c0.60156,0.10938 0.82031,-0.25781 0.82031,-0.57812c0,-0.28516 -0.01172,-1.03906 -0.01562,-2.03906c-3.33984,0.72266 -4.04297,-1.60937 -4.04297,-1.60937c-0.54687,-1.38672 -1.33203,-1.75781 -1.33203,-1.75781c-1.08984,-0.74219 0.08203,-0.72656 0.08203,-0.72656c1.20313,0.08594 1.83594,1.23438 1.83594,1.23438c1.07031,1.83594 2.80859,1.30469 3.49219,1c0.10938,-0.77734 0.42188,-1.30469 0.76172,-1.60547c-2.66406,-0.30078 -5.46484,-1.33203 -5.46484,-5.92969c0,-1.3125 0.46875,-2.38281 1.23438,-3.22266c-0.12109,-0.30078 -0.53516,-1.52344 0.11719,-3.17578c0,0 1.00781,-0.32031 3.30078,1.23047c0.95703,-0.26562 1.98438,-0.39844 3.00391,-0.40234c1.01953,0.00391 2.04688,0.13672 3.00391,0.40234c2.29297,-1.55078 3.29688,-1.23047 3.29688,-1.23047c0.65625,1.65234 0.24609,2.875 0.12109,3.17578c0.76953,0.83984 1.23047,1.91016 1.23047,3.22266c0,4.60938 -2.80469,5.62109 -5.47656,5.92188c0.42969,0.36719 0.8125,1.10156 0.8125,2.21875c0,1.60547 -0.01172,2.89844 -0.01172,3.29297c0,0.32031 0.21484,0.69531 0.82422,0.57813c4.76563,-1.58984 8.19922,-6.08594 8.19922,-11.38672c0,-6.62891 -5.37109,-12 -12,-12z"
+												></path>
+											</g>
+										</g>
+									</svg>
+								</a>
+							</li>
+							<li class="contacts__item contacts__item--linked">
+								<a target="blank" href="https://www.linkedin.com/in/tsimafei-maroz-8b4541263/" class="contacts__link">
+									<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 50 50">
+										<path
+											d="M 8 3.0117188 C 6.3126093 3.0117188 4.8354789 3.4916328 3.7539062 4.3652344 C 2.6723337 5.238836 2.0117188 6.533218 2.0117188 7.9472656 C 2.0117188 10.690836 4.4687078 12.814467 7.7167969 12.941406 A 0.98809878 0.98809878 0 0 0 8 12.988281 C 9.753566 12.988281 11.246191 12.474267 12.3125 11.564453 C 13.378809 10.654639 13.988281 9.3429353 13.988281 7.9472656 A 0.98809878 0.98809878 0 0 0 13.986328 7.8925781 C 13.832307 5.1316834 11.374781 3.0117187 8 3.0117188 z M 8 4.9882812 C 10.60907 4.9882812 11.895883 6.2693448 12.005859 7.9726562 C 11.998759 8.8049335 11.676559 9.5118991 11.03125 10.0625 C 10.378809 10.619186 9.371434 11.011719 8 11.011719 C 5.3980542 11.011719 3.9882813 9.5991704 3.9882812 7.9472656 C 3.9882812 7.1213132 4.3276663 6.4422421 4.9960938 5.9023438 C 5.6645211 5.3624454 6.6873907 4.9882813 8 4.9882812 z M 3 15 A 1.0001 1.0001 0 0 0 2 16 L 2 45 A 1.0001 1.0001 0 0 0 3 46 L 13 46 A 1.0001 1.0001 0 0 0 14 45 L 14 35.664062 L 14 16 A 1.0001 1.0001 0 0 0 13 15 L 3 15 z M 18 15 A 1.0001 1.0001 0 0 0 17 16 L 17 45 A 1.0001 1.0001 0 0 0 18 46 L 28 46 A 1.0001 1.0001 0 0 0 29 45 L 29 29 L 29 28.75 L 29 28.5 C 29 26.555577 30.555577 25 32.5 25 C 34.444423 25 36 26.555577 36 28.5 L 36 45 A 1.0001 1.0001 0 0 0 37 46 L 47 46 A 1.0001 1.0001 0 0 0 48 45 L 48 28 C 48 23.873476 46.787888 20.604454 44.744141 18.375 C 42.700394 16.145546 39.849212 15 36.787109 15 C 32.882872 15 30.521631 16.426076 29 17.601562 L 29 16 A 1.0001 1.0001 0 0 0 28 15 L 18 15 z M 4 17 L 12 17 L 12 35.664062 L 12 44 L 4 44 L 4 17 z M 19 17 L 27 17 L 27 19.638672 A 1.0001 1.0001 0 0 0 28.744141 20.306641 C 28.744141 20.306641 31.709841 17 36.787109 17 C 39.360007 17 41.615528 17.922268 43.269531 19.726562 C 44.923534 21.530858 46 24.261524 46 28 L 46 44 L 38 44 L 38 28.5 A 1.0001 1.0001 0 0 0 37.916016 28.089844 C 37.694061 25.26411 35.38033 23 32.5 23 C 29.474423 23 27 25.474423 27 28.5 L 27 28.75 L 27 29 L 27 44 L 19 44 L 19 17 z"
+										></path>
+									</svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>
