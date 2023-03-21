@@ -410,7 +410,7 @@ const worksTimeline = gsap.timeline({
         start: 'top top',
         end: () => `+=${ worksListWidth }px`,
         scrub: 2,
-        markers: true
+        // markers: true
     },
 })
 
@@ -487,7 +487,6 @@ gsap.from('.legendary__frame-floor', {
     scrollTrigger: {
         trigger: '.legendary',
         start: 'bottom bottom',
-        markers: true,
         // toggleActions: 'restart none none none'
     }
 })
