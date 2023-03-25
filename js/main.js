@@ -6,7 +6,6 @@ gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
 
 
-
 const locoScroll = new LocomotiveScroll({
     el: document.querySelector(".all-content"),
     smooth: true,
@@ -47,7 +46,7 @@ ScrollTrigger.defaults({
 ScrollTrigger.create({
     trigger: '.about',
     start: 'top top',
-    end: '150% top',
+    end: '100% top',
     pin: true,
     // markers: true,
     scrub: 2,
@@ -67,95 +66,23 @@ ScrollTrigger.create({
 
 })
 
-// sections parallax
 
-// let getRatio = el => window.innerHeight / (window.innerHeight + document.querySelector(el).offsetHeight);
+document.querySelector('.header__item--about').addEventListener('click', () => {
+    locoScroll.scrollTo('.about')
+})
 
-// gsap.fromTo('.about', {
-//     backgroundPosition: () => "50% 0px"
-// }, {
-//     backgroundPosition: () => `50% ${ window.innerHeight * (1 - getRatio('.about')) }px`,
-//     ease: "none",
-//     scrollTrigger: {
-//         trigger: '.about',
-//         start: () => "top top",
-//         end: "bottom top",
-//         scrub: true,
-//         // markers: true,
-//         invalidateOnRefresh: true // to make it responsive
-//     }
-// });
+document.querySelector('.header__item--skills').addEventListener('click', () => {
+    locoScroll.scrollTo('.skills')
+})
 
-// gsap.from('.offers', {
-//     backgroundPosition: () => `50% ${ -window.innerHeight * getRatio('.offers') }px`,
-//     ease: "none",
-//     scrollTrigger: {
-//         trigger: '.offers',
-//         start: () => "top bottom",
-//         end: '99% bottom',
-//         scrub: true,
-//         // markers: true,
-//         invalidateOnRefresh: true // to make it responsive
-//     }
-// });
+document.querySelector('.header__item--works').addEventListener('click', () => {
+    locoScroll.scrollTo('.works')
+})
 
-// gsap.to('.offers', {
-//     backgroundPosition: () => `50% ${ window.innerHeight * (1 - getRatio('.offers')) }px`,
-//     ease: "none",
-//     scrollTrigger: {
-//         trigger: '.offers',
-//         start: "1% top",
-//         end: 'bottom top',
-//         scrub: true,
-//         // markers: true,
-//         invalidateOnRefresh: true // to make it responsive
-//     }
-// });
+document.querySelector('.header__item--contacts').addEventListener('click', () => {
+    locoScroll.scrollTo('.legendary')
+})
 
-// gsap.from('.skills__bg', {
-//     backgroundPosition: () => `50% ${ -window.innerHeight * getRatio('.skills__bg') }px`,
-//     ease: "none",
-//     scrollTrigger: {
-//         trigger: '.skills__bg',
-//         start: () => "top bottom",
-//         end: '99% bottom',
-//         scrub: true,
-//         invalidateOnRefresh: true // to make it responsive
-//     }
-// });
-
-// gsap.from('.skills__computers', {
-//     backgroundPosition: () => `0 ${ window.innerHeight * (1 - getRatio('.skills__computers')) }px`,
-//     ease: "none",
-//     scrollTrigger: {
-//         trigger: '.skills__bg',
-//         start: () => "top bottom",
-//         end: '99% bottom',
-//         scrub: true,
-//         invalidateOnRefresh: true // to make it responsive
-//     }
-// });
-
-
-
-// gsap.utils.toArray("section").forEach((section, i) => {
-
-//     gsap.fromTo(section, {
-//         backgroundPosition: () => i ? `50% ${ -window.innerHeight * getRatio(section) }px` : "50% 0px"
-//     }, {
-//         backgroundPosition: () => `50% ${ window.innerHeight * (1 - getRatio(section)) }px`,
-//         ease: "none",
-//         scrollTrigger: {
-//             trigger: section,
-//             start: () => i ? "top bottom" : "top top",
-//             end: "bottom top",
-//             scrub: true,
-//             markers: true,
-//             invalidateOnRefresh: true // to make it responsive
-//         }
-//     });
-
-// });
 
 
 // ABOUT
@@ -176,12 +103,7 @@ aboutBackgroundTimeline.to('.about__bg', {
     })
 
 const aboutTextTimeline = gsap.timeline({
-    scrollTrigger: {
-        trigger: '.about__content',
-        start: '10% top',
-        toggleActions: 'play reverse play none',
-        // markers: true
-    }
+    delay: 3.5
 })
 
 gsap.fromTo('.about__frame', {
@@ -217,8 +139,8 @@ gsap.to('.about__bg', {
         //     return `${ document.querySelector('.about').offsetHeight * 2 } top`
         // }
     },
-    yPercent: 200,
-    duration: 1,
+    y: '150vh',
+    duration: 2,
 })
 // .to('.about__bg', { opacity: 0 })
 
@@ -241,7 +163,6 @@ offersTimeline.fromTo('.offers__left', {
         end: '+=50%',
     },
     duration: 12,
-    delay: 4
 })
 offersTimeline.fromTo(".offers__right", {
     yPercent: 100
@@ -259,46 +180,95 @@ offersTimeline.fromTo(".offers__right", {
     },
 })
 
-document.querySelectorAll('.offers__item').forEach((item, i) => {
-    offersTimeline.fromTo(item, {
-        opacity: 0,
-        scaleY: 0.7,
-        scaleX: 0.4,
-    }, {
-        keyframes: {
-            '20%': {
-                opacity: 1,
-                scaleY: 1,
-                scaleX: 1,
-            },
-            '75%': {
-                opacity: 1,
-                scaleY: 1,
-                scaleX: 1,
-            },
-            '100%': {
-                opacity: 0,
-                scaleY: 0.7,
-                scaleX: 0.4,
-            },
-            // easeEach: 'back'
-        },
+const offersMedia = gsap.matchMedia();
 
-        scrollTrigger: {
-            trigger: '.offers__right', // тут ошибка
-            scrub: 2,
-            // markers: true,
-            start: () => {
-                return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 95%`
+offersMedia.add("(min-width: 768px)", () => {
+
+    document.querySelectorAll('.offers__item').forEach((item, i) => {
+        offersTimeline.fromTo(item, {
+            opacity: 0,
+            scaleY: 0.7,
+            scaleX: 0.4,
+        }, {
+            keyframes: {
+                '20%': {
+                    opacity: 1,
+                    scaleY: 1,
+                    scaleX: 1,
+                },
+                '75%': {
+                    opacity: 1,
+                    scaleY: 1,
+                    scaleX: 1,
+                },
+                '100%': {
+                    opacity: 0,
+                    scaleY: 0.7,
+                    scaleX: 0.4,
+                },
+                // easeEach: 'back'
             },
-            end: () => {
-                return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 15%}`
-            }
 
-        },
+            scrollTrigger: {
+                trigger: '.offers__right', // тут ошибка
+                scrub: 2,
+                // markers: true,
+                start: () => {
+                    return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 95%`
+                },
+                end: () => {
+                    return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 15%}`
+                }
 
+            },
+
+        })
     })
 })
+
+offersMedia.add("(max-width: 768px)", () => {
+    document.querySelectorAll('.offers__item').forEach((item, i) => {
+        offersTimeline.fromTo(item, {
+            opacity: 0,
+            scaleY: 0.7,
+            scaleX: 0.4,
+        }, {
+            keyframes: {
+                '20%': {
+                    opacity: 1,
+                    scaleY: 1,
+                    scaleX: 1,
+                },
+                '85%': {
+                    opacity: 1,
+                    scaleY: 1,
+                    scaleX: 1,
+                },
+                '100%': {
+                    opacity: 0,
+                    scaleY: 0.7,
+                    scaleX: 0.4,
+                },
+                // easeEach: 'back'
+            },
+
+            scrollTrigger: {
+                trigger: '.offers__right', // тут ошибка
+                scrub: 2,
+                markers: true,
+                start: () => {
+                    return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 95%`
+                },
+                end: () => {
+                    return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } ${ window.innerHeight * 0.1 + document.querySelector('.offers__left').offsetHeight }}`
+                }
+
+            },
+
+        })
+    })
+})
+
 
 //skills
 
@@ -326,16 +296,17 @@ const skillsBgTimeline = gsap.timeline({
 })
 
 skillsBgTimeline.to('.skills__computers', {
-    scale: 3,
+    scale: 3.2,
     duration: 30,
-    transformOrigin: 'left center'
+    transformOrigin: 'left center',
+    yPercent: -30,
 })
 
     // .fromTo('.skills__display', {
     //     opacity: 0,
     // }, { opacity: 1, duration: 0.1 })
     .to('.skills__bg', {
-        scale: 2,
+        scale: 1.75,
         duration: 30,
         transformOrigin: 'center center'
     }, 0)
@@ -374,7 +345,8 @@ skillsBgTimeline.to('.skills__computers', {
     .to('.skills__computers', {
         scale: 1,
         duration: 30,
-        transformOrigin: 'left center'
+        transformOrigin: 'left center',
+        yPercent: 0
     }, '<')
     .to('.skills__bg', {
         scale: 1,
@@ -402,8 +374,6 @@ ScrollTrigger.create({
 
 })
 
-console.log(worksListWidth)
-
 const worksTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: '.works__list',
@@ -430,7 +400,7 @@ ScrollTrigger.create({
     pin: true,
     // pinSpacing: false,
     start: '100% bottom',
-    end: '+=700%',
+    end: '+=150%',
     // markers: true
 
 })
@@ -448,21 +418,22 @@ const legendaryTimeline = gsap.timeline({
 })
 
 legendaryTimeline.from('.legendary__text--1', {
-    xPercent: -70,
-    scale: 0,
+    xPercent: -50,
+    scale: 0.5,
     opacity: 0,
     duration: 20,
     ease: 'back',
 })
     .from('.legendary__text--2', {
-        xPercent: 70,
-        scale: 0,
+        xPercent: 50,
+        scale: 0.5,
         opacity: 0,
         duration: 20,
         ease: 'back',
     }, '+=3')
     .from('.legendary__text--wait', {
-        scale: 0,
+        scale: 0.3,
+        yPercent: 20,
         opacity: 0,
         duration: 20,
         ease: 'back',
@@ -476,6 +447,7 @@ legendaryTimeline.from('.legendary__text--1', {
         opacity: 0,
         duration: 5,
     }, '<+=3')
+
 
 
 gsap.from('.legendary__frame-floor', {

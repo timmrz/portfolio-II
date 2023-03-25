@@ -14,7 +14,7 @@ document.onreadystatechange = function () {
             gsap.to('.loader', {
                 yPercent: 100,
                 opacity: 0,
-                duration: 2,
+                duration: 1.5,
                 ease: 'none'
             })
 
@@ -24,7 +24,7 @@ document.onreadystatechange = function () {
         setTimeout(() => {
             document.querySelector(
                 ".loader").style.display = "none";
-        }, 4000);
+        }, 3500);
 
     }
 };

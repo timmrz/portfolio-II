@@ -50,27 +50,22 @@
 		<header class="header">
 			<nav class="header__nav">
 				<ul class="header__list">
-					<li class="header__item">
-						<a href="#about" class="header__link"> About </a>
-					</li>
-					<li class="header__item">
-						<a href="#skills" class="header__link"> Skills </a>
-					</li>
-					<li class="header__item">
-						<a href="#works" class="header__link"> Works </a>
-					</li>
-					<li class="header__item">
-						<a href="#works" class="header__link"> Contacts </a>
-					</li>
+					<li class="header__item header__item--about">About</li>
+					<li class="header__item header__item--skills">Skills</li>
+					<li class="header__item header__item--works">Works</li>
+					<li class="header__item header__item--contacts">Contacts</li>
 				</ul>
 			</nav>
 		</header>
 		<div class="all-content">
 			<main class="main">
-				<section class="about">
+				<section id="about" class="about">
 					<div class="about__content">
-						<div class="about__bg"></div>
-						<div class="about__frame">?</div>
+						<div class="about__frame-block">
+							<div class="about__bg"></div>
+
+							<div class="about__frame">?</div>
+						</div>
 						<div class="intro about__intro">
 							<p class="intro__hi"></p>
 							<p class="intro__text"></p>
@@ -112,7 +107,7 @@
 						</ul>
 					</div>
 				</section>
-				<section class="skills">
+				<section id="skills" class="skills">
 					<p class="skills__text">Let's see what skills I have...</p>
 					<div class="skills__bg">
 						<div class="skills__content">
@@ -190,7 +185,7 @@
 						</div>
 					</div>
 				</section>
-				<section class="works">
+				<section id="works" class="works">
 					<div class="works__header">MY PROJECTS</div>
 					<div class="works__content">
 						<ul class="works__list">
@@ -201,7 +196,7 @@
 								</div>
 								<p class="works__text">Landing page with scroll animations created in React using styled components, framer-motion and gsap animations</p>
 								<button class="works__button">
-									<a href="" target="_blank" class="works__link"> Demo </a>
+									<a href="https://vibe-studio.vercel.app/" target="_blank" class="works__link"> Demo </a>
 								</button>
 							</li>
 							<li class="works__item">
@@ -211,7 +206,7 @@
 								</div>
 								<p class="works__text">Animated landing page created with React and SCSS</p>
 								<button class="works__button">
-									<a href="" target="_blank" class="works__link"> Demo </a>
+									<a href="https://timmrz.github.io/gpt-3/" target="_blank" class="works__link"> Demo </a>
 								</button>
 							</li>
 							<li class="works__item">
@@ -221,7 +216,7 @@
 								</div>
 								<p class="works__text">Clone of the popular blog Medium created in NextJS using Typescript, TaiwindCSS and CMS Sanity as the backend</p>
 								<button class="works__button">
-									<a href="" target="_blank" class="works__link"> Demo </a>
+									<a href="https://medium-clone-six-murex.vercel.app/" target="_blank" class="works__link"> Demo </a>
 								</button>
 							</li>
 							<li class="works__item">
@@ -231,7 +226,7 @@
 								</div>
 								<p class="works__text">Online sneaker store created using React and SCSS modules, which uses Mockapi as the backend</p>
 								<button class="works__button">
-									<a href="" target="_blank" class="works__link"> Demo </a>
+									<a href="https://timmrz.github.io/sneaker-store/" target="_blank" class="works__link"> Demo </a>
 								</button>
 							</li>
 
@@ -246,7 +241,7 @@
 						</ul>
 					</div>
 				</section>
-				<section class="legendary">
+				<section id="contacts" class="legendary">
 					<svg id="svgfilters" viewBox="0 0 1400 1400" xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
 						<defs>
 							<filter id="squiggly-0">
