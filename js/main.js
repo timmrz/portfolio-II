@@ -206,13 +206,11 @@ offersMedia.add("(min-width: 768px)", () => {
                     scaleY: 0.7,
                     scaleX: 0.4,
                 },
-                // easeEach: 'back'
             },
 
             scrollTrigger: {
-                trigger: '.offers__right', // тут ошибка
+                trigger: '.offers__right',
                 scrub: 2,
-                // markers: true,
                 start: () => {
                     return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 95%`
                 },
@@ -249,13 +247,11 @@ offersMedia.add("(max-width: 768px)", () => {
                     scaleY: 0.7,
                     scaleX: 0.4,
                 },
-                // easeEach: 'back'
             },
 
             scrollTrigger: {
-                trigger: '.offers__right', // тут ошибка
+                trigger: '.offers__right',
                 scrub: 2,
-                markers: true,
                 start: () => {
                     return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 95%`
                 },
