@@ -279,6 +279,8 @@ ScrollTrigger.create({
 
 })
 
+const skillsMedia = gsap.matchMedia();
+
 
 const skillsBgTimeline = gsap.timeline({
     scrollTrigger: {
@@ -291,68 +293,80 @@ const skillsBgTimeline = gsap.timeline({
     ease: 'none'
 })
 
-skillsBgTimeline.to('.skills__computers', {
-    scale: 3.2,
-    duration: 30,
-    transformOrigin: 'left center',
-    yPercent: -30,
-})
+skillsMedia.add({
+    xl: "(min-width: 1601px)",
+    lg: "(max-width: 1600px)",
+    md: "(max-width: 540px)",
+    xs: "(max-width: 400px)"
+}, (context) => {
+    let { xl, lg, md, xs } = context.conditions;
 
-    // .fromTo('.skills__display', {
-    //     opacity: 0,
-    // }, { opacity: 1, duration: 0.1 })
-    .to('.skills__bg', {
-        scale: 1.75,
-        duration: 30,
-        transformOrigin: 'center center'
-    }, 0)
-    .to('.skills__display-shadow', {
-        opacity: 0.1,
-        duration: 20
-    }, 0)
-    .from('.skills__text', {
-        duration: 10,
-        opacity: 0,
-        yPercent: 30
+    skillsBgTimeline.to('.skills__computers', {
+        scale: () => {
+            if (xs) return 1.2
+            if (md) return 1.4
 
-    }, '<+=10')
-    .fromTo('.skills__list-up', {
-        yPercent: 70,
-    }, {
-        yPercent: -100,
-        duration: 100,
-    })
-    .fromTo('.skills__list--2', {
-        yPercent: -70,
-    }, {
-        yPercent: 100,
-        duration: 100,
-    }, "<")
-    .to('.skills__text', {
-        duration: 10,
-        // text: {
-        //     value: "",
-        //     delimiter: " "
-        // },
-        opacity: 0,
-        yPercent: -30
-
-    })
-    .to('.skills__computers', {
-        scale: 1,
+            if (xl) {
+                return 3.2
+            }
+            if (lg) return 2
+        },
         duration: 30,
         transformOrigin: 'left center',
-        yPercent: 0
-    }, '<')
-    .to('.skills__bg', {
-        scale: 1,
-        duration: 30,
-        transformOrigin: 'center center'
-    }, "<")
-    .to('.skills__display-shadow', {
-        opacity: 1,
-        duration: 20
-    }, '<+=15')
+        yPercent: -30,
+    })
+
+        .to('.skills__bg', {
+            scale: 1.75,
+            duration: 30,
+            transformOrigin: 'center center'
+        }, 0)
+        .to('.skills__display-shadow', {
+            opacity: 0.1,
+            duration: 20
+        }, 0)
+        .from('.skills__text', {
+            duration: 10,
+            opacity: 0,
+            yPercent: 30
+
+        }, '<+=10')
+        .fromTo('.skills__list-up', {
+            yPercent: 70,
+        }, {
+            yPercent: -100,
+            duration: 100,
+        })
+        .fromTo('.skills__list--2', {
+            yPercent: -70,
+        }, {
+            yPercent: 100,
+            duration: 100,
+        }, "<")
+        .to('.skills__text', {
+            duration: 10,
+            opacity: 0,
+            yPercent: -30
+
+        })
+        .to('.skills__computers', {
+            scale: 1,
+            duration: 30,
+            // transformOrigin: 'left center',
+            yPercent: 0
+        }, '<')
+        .to('.skills__bg', {
+            scale: 1,
+            duration: 30,
+            transformOrigin: 'center center'
+        }, "<")
+        .to('.skills__display-shadow', {
+            opacity: 1,
+            duration: 20
+        }, '<+=15')
+})
+
+
 
 
 // WORKS
