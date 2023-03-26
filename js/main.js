@@ -164,25 +164,27 @@ offersTimeline.fromTo('.offers__left', {
     },
     duration: 12,
 })
-offersTimeline.fromTo(".offers__right", {
-    yPercent: 100
-}, {
-    yPercent: -85,
-    scrollTrigger: {
-        trigger: '.offers__right',
-        scrub: 2,
-        // markers: true,
-        start: () => {
-            return `${ document.querySelector('.offers__right').offsetHeight } bottom`
-        },
-        end: () => `${ document.querySelector('.offers__right').offsetHeight * 2.5 } top`,
 
-    },
-})
 
 const offersMedia = gsap.matchMedia();
 
 offersMedia.add("(min-width: 768px)", () => {
+
+    offersTimeline.fromTo(".offers__right", {
+        yPercent: 100
+    }, {
+        yPercent: -85,
+        scrollTrigger: {
+            trigger: '.offers__right',
+            scrub: 1,
+            // markers: true,
+            start: () => {
+                return `${ document.querySelector('.offers__right').offsetHeight } bottom`
+            },
+            end: () => `${ document.querySelector('.offers__right').offsetHeight * 2.5 } top`,
+
+        },
+    })
 
     document.querySelectorAll('.offers__item').forEach((item, i) => {
         offersTimeline.fromTo(item, {
@@ -210,7 +212,7 @@ offersMedia.add("(min-width: 768px)", () => {
 
             scrollTrigger: {
                 trigger: '.offers__right',
-                scrub: 2,
+                scrub: 1,
                 start: () => {
                     return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 95%`
                 },
@@ -225,6 +227,23 @@ offersMedia.add("(min-width: 768px)", () => {
 })
 
 offersMedia.add("(max-width: 768px)", () => {
+
+    offersTimeline.fromTo(".offers__right", {
+        yPercent: 80
+    }, {
+        yPercent: -65,
+        scrollTrigger: {
+            trigger: '.offers__right',
+            scrub: 1,
+            // markers: true,
+            start: () => {
+                return `${ document.querySelector('.offers__right').offsetHeight } bottom`
+            },
+            end: () => `${ document.querySelector('.offers__right').offsetHeight * 2.5 } top`,
+
+        },
+    })
+
     document.querySelectorAll('.offers__item').forEach((item, i) => {
         offersTimeline.fromTo(item, {
             opacity: 0,
@@ -251,7 +270,8 @@ offersMedia.add("(max-width: 768px)", () => {
 
             scrollTrigger: {
                 trigger: '.offers__right',
-                scrub: 2,
+                scrub: 1,
+                markers: true,
                 start: () => {
                     return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 95%`
                 },
