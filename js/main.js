@@ -12,13 +12,15 @@ const locoScroll = new LocomotiveScroll({
     initPosition: { x: 0, y: 0 },
     mobile: {
         smooth: true,
-        breakpoint: 0,
     },
     tablet: {
         smooth: true,
         breakpoint: 0,
     }
 });
+
+
+
 // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
 locoScroll.on("scroll", ScrollTrigger.update);
 
@@ -33,6 +35,8 @@ ScrollTrigger.scrollerProxy(".all-content", {
     // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
     pinType: document.querySelector(".all-content").style.transform ? "transform" : "fixed"
 });
+
+
 
 
 // animations
@@ -231,7 +235,7 @@ offersMedia.add("(max-width: 768px)", () => {
     offersTimeline.fromTo(".offers__right", {
         yPercent: 80
     }, {
-        yPercent: -65,
+        yPercent: -75,
         scrollTrigger: {
             trigger: '.offers__right',
             scrub: 1,
@@ -271,7 +275,7 @@ offersMedia.add("(max-width: 768px)", () => {
             scrollTrigger: {
                 trigger: '.offers__right',
                 scrub: 1,
-                markers: true,
+                // markers: true,
                 start: () => {
                     return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 95%`
                 },
@@ -391,32 +395,37 @@ skillsMedia.add({
 
 // WORKS
 
-const worksListWidth = document.querySelector('.works__list').scrollWidth;
+const worksItemWidth = document.querySelector('.works__item').offsetWidth;
+const worksItems = document.querySelectorAll('.works__item')
+console.log(worksItemWidth)
 
-ScrollTrigger.create({
-    trigger: '.works',
-    scroller: '.all-content',
-    pin: true,
-    // pinSpacing: false,
-    start: 'top top',
-    end: () => `+=${ 0.15 * window.innerHeight + worksListWidth }`,
-    // markers: true
+// ScrollTrigger.create({
+//     trigger: '.works',
+//     scroller: '.all-content',
+//     pin: true,
+//     // pinSpacing: false,
+//     start: 'top top',
+//     end: "+=300%",
+//     markers: true
 
-})
+// })
 
 const worksTimeline = gsap.timeline({
     scrollTrigger: {
-        trigger: '.works__list',
+        trigger: '.works',
         start: 'top top',
-        end: () => `+=${ worksListWidth }px`,
-        scrub: 2,
-        // markers: true
+        end: () => `+=250%`,
+        scrub: 1,
+        pin: true,
+        markers: true
     },
 })
 
-worksTimeline.to('.works__list', {
-    xPercent: -105,
-    duration: 10
+worksTimeline.fromTo('.works__list', {
+    x: () => `${ worksItemWidth / 2 }px`,
+
+}, {
+    x: () => `-${ worksItemWidth * worksItems.length - window.innerWidth - 4 }px`
 })
 
 
@@ -429,9 +438,10 @@ ScrollTrigger.create({
     scroller: '.all-content',
     pin: true,
     // pinSpacing: false,
-    start: '100% bottom',
-    end: '+=150%',
-    // markers: true
+    start: 'top top',
+    end: '+=250%',
+    markers: true,
+
 
 })
 
@@ -440,9 +450,9 @@ ScrollTrigger.create({
 const legendaryTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: '.legendary',
-        start: '99% bottom',
-        end: '+=150%',
-        scrub: 2,
+        start: 'top top',
+        end: '+=250%',
+        scrub: 1,
         // markers: true
     },
 })
@@ -497,60 +507,10 @@ gsap.from('.legendary__frame-floor', {
 
 
 
-
-
-
-
-// offersTimeline.fromTo(".offers__item", {
-//     opacity: 0,
-//     scaleX: 0.5,
-//     yPercent: 300
-// }, {
-//    yPercent: 0,
-//    scaleX: 1,
-//    opacity: 1,
-//     scrollTrigger: {
-//         trigger: '.offers__right',
-//         scrub: 2,
-//         markers: true,
-//         start: 'top bottom',
-//         end: '+=100%',
-//     },
-//     stagger: 5,
-//     duration: 5,
-//    })
-
-
-// gsap.from('.legendary__frame-floor ', {
-//     scrollTrigger: {
-//         trigger: ".legendary",
-//         // scrub: 1,
-//         // pin: true,
-//         start: "10px 50%",
-//         end: "10px 10%",
-//         toggleActions: 'restart none reverse none',
-//         markers: true
-//     },
-//     y: -1200,
-//     rotation: -120,
-//     // bottom: '-5%',
-//     delay: 4,
-//     duration: 1,
-//     ease: 'back'
-// })
-
-
-
-// .fromTo('.skills__bg', {
-//     backgroundSize: '100% auto'
-// }, { backgroundSize: '200% auto', duration: 4, transformOrigin: 'center bottom' })
-
-
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
 // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
 
-// })
 
