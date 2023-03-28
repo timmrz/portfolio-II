@@ -533,7 +533,7 @@ section {
 	position: relative;
 	background: url("../img/legendary_bg.jpg") no-repeat;
 	background-size: cover;
-	background-position: top center;
+	background-position: center center;
 	overflow: hidden;
 }
 
@@ -842,6 +842,10 @@ section {
 	}
 
 	/* CONTACTS */
+
+	.legendary {
+		background-position: top center;
+	}
 
 	.legendary__frame-floor {
 		width: 350px;

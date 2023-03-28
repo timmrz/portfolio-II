@@ -1,11 +1,6 @@
 
 gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
-// document.addEventListener('DOMContentLoaded', () => {
-
-
-
-
 const locoScroll = new LocomotiveScroll({
     el: document.querySelector(".all-content"),
     smooth: true,
@@ -21,18 +16,15 @@ const locoScroll = new LocomotiveScroll({
 
 
 
-// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
 locoScroll.on("scroll", ScrollTrigger.update);
 
-// tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
 ScrollTrigger.scrollerProxy(".all-content", {
     scrollTop(value) {
         return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-    }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+    },
     getBoundingClientRect() {
         return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
     },
-    // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
     pinType: document.querySelector(".all-content").style.transform ? "transform" : "fixed"
 });
 
@@ -52,21 +44,16 @@ ScrollTrigger.create({
     start: 'top top',
     end: '100% top',
     pin: true,
-    // markers: true,
     scrub: 2,
-    // animation: animationOffers,
 })
-
 
 
 ScrollTrigger.create({
     trigger: '.offers',
     scroller: '.all-content',
     pin: true,
-    // pinSpacing: false,
     start: 'top top',
-    end: '+=320%',
-    // markers: true
+    end: '+=240%',
 
 })
 
@@ -136,17 +123,12 @@ aboutTextTimeline.to('.intro__hi', {
 gsap.to('.about__bg', {
     scrollTrigger: {
         trigger: '.about__bg',
-        // markers: true,
+
         start: 'bottom top',
-        // end: () => {
-        //     console.log(document.querySelector('.about').offsetHeight)
-        //     return `${ document.querySelector('.about').offsetHeight * 2 } top`
-        // }
     },
     y: '150vh',
     duration: 2,
 })
-// .to('.about__bg', { opacity: 0 })
 
 
 // OFFERS
@@ -162,7 +144,7 @@ offersTimeline.fromTo('.offers__left', {
     scrollTrigger: {
         trigger: '.offers__container',
         scrub: 2,
-        // markers: true,
+
         start: '20% top',
         end: '+=50%',
     },
@@ -181,7 +163,7 @@ offersMedia.add("(min-width: 768px)", () => {
         scrollTrigger: {
             trigger: '.offers__right',
             scrub: 1,
-            // markers: true,
+
             start: () => {
                 return `${ document.querySelector('.offers__right').offsetHeight } bottom`
             },
@@ -239,7 +221,7 @@ offersMedia.add("(max-width: 768px)", () => {
         scrollTrigger: {
             trigger: '.offers__right',
             scrub: 1,
-            // markers: true,
+
             start: () => {
                 return `${ document.querySelector('.offers__right').offsetHeight } bottom`
             },
@@ -275,7 +257,7 @@ offersMedia.add("(max-width: 768px)", () => {
             scrollTrigger: {
                 trigger: '.offers__right',
                 scrub: 1,
-                // markers: true,
+
                 start: () => {
                     return `${ document.querySelector('.offers__right').offsetHeight + (item.offsetHeight + 60) * i } 95%`
                 },
@@ -296,10 +278,8 @@ ScrollTrigger.create({
     trigger: '.skills',
     scroller: '.all-content',
     pin: true,
-    // pinSpacing: false,
     start: '100% bottom',
     end: '+=700%',
-    // markers: true
 
 })
 
@@ -312,7 +292,6 @@ const skillsBgTimeline = gsap.timeline({
         start: '100% bottom',
         end: '+=650%',
         scrub: 1,
-        // markers: true
     },
     ease: 'none'
 })
@@ -376,7 +355,6 @@ skillsMedia.add({
         .to('.skills__computers', {
             scale: 1,
             duration: 30,
-            // transformOrigin: 'left center',
             yPercent: 0
         }, '<')
         .to('.skills__bg', {
@@ -397,18 +375,6 @@ skillsMedia.add({
 
 const worksItemWidth = document.querySelector('.works__item').offsetWidth;
 const worksItems = document.querySelectorAll('.works__item')
-console.log(worksItemWidth)
-
-// ScrollTrigger.create({
-//     trigger: '.works',
-//     scroller: '.all-content',
-//     pin: true,
-//     // pinSpacing: false,
-//     start: 'top top',
-//     end: "+=300%",
-//     markers: true
-
-// })
 
 const worksTimeline = gsap.timeline({
     scrollTrigger: {
@@ -425,7 +391,7 @@ worksTimeline.fromTo('.works__list', {
     x: () => `${ worksItemWidth / 2 }px`,
 
 }, {
-    x: () => `-${ worksItemWidth * worksItems.length - window.innerWidth - 4 }px`
+    x: () => `-${ worksItemWidth * (worksItems.length - 0.1) - window.innerWidth }px`
 })
 
 
@@ -437,10 +403,8 @@ ScrollTrigger.create({
     trigger: '.legendary',
     scroller: '.all-content',
     pin: true,
-    // pinSpacing: false,
     start: 'top top',
     end: '+=250%',
-    markers: true,
 
 
 })
@@ -453,7 +417,6 @@ const legendaryTimeline = gsap.timeline({
         start: 'top top',
         end: '+=250%',
         scrub: 1,
-        // markers: true
     },
 })
 
@@ -494,23 +457,17 @@ gsap.from('.legendary__frame-floor', {
     duration: 1,
     ease: 'back',
     rotation: -37,
-    yPercent: -200,
+    y: '-150vh',
     delay: 4,
     scrollTrigger: {
         trigger: '.legendary',
         start: 'bottom bottom',
-        // toggleActions: 'restart none none none'
     }
 })
 
 
 
-
-
-// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
 
 
