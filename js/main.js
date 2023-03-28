@@ -461,7 +461,7 @@ gsap.from('.legendary__frame-floor', {
     delay: 4,
     scrollTrigger: {
         trigger: '.legendary',
-        start: 'bottom bottom',
+        start: 'top top',
     }
 })
 
