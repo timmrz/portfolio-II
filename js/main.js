@@ -64,7 +64,7 @@ ScrollTrigger.create({
     scroller: '.all-content',
     pin: true,
     // pinSpacing: false,
-    start: '100% bottom',
+    start: 'top top',
     end: '+=320%',
     // markers: true
 
