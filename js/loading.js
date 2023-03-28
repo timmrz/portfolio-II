@@ -24,7 +24,7 @@ document.onreadystatechange = function () {
         setTimeout(() => {
             document.querySelector(
                 ".loader").style.display = "none";
-        }, 3500);
+        }, 3000);
 
     }
 };

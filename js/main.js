@@ -383,7 +383,6 @@ const worksTimeline = gsap.timeline({
         end: () => `+=250%`,
         scrub: 1,
         pin: true,
-        markers: true
     },
 })
 
