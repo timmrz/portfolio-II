@@ -1,7 +1,5 @@
 document.onreadystatechange = function () {
     if (document.readyState !== "complete") {
-        // document.querySelector(
-        //     ".all-content").style.visibility = "hidden";
         document.querySelector(
             ".loader").style.visibility = "visible";
     } else {
